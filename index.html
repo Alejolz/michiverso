@@ -983,14 +983,20 @@ async function sendChat() {
         })
       }
     );
-    if (!res.ok) throw new Error(`Error ${res.status}`);
+    console.log('[Gemini] Status:', res.status, res.statusText);
     const data = await res.json();
+    console.log('[Gemini] Response body:', JSON.stringify(data, null, 2));
+    if (!res.ok) {
+      const errMsg = data?.error?.message || `Error ${res.status}`;
+      throw new Error(errMsg);
+    }
     const answer = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Sin respuesta.';
     chatResponse.classList.add('has-text');
     chatResponse.textContent = answer;
   } catch (err) {
+    console.error('[Gemini] Error:', err);
     chatResponse.classList.add('has-text');
-    chatResponse.textContent = 'El Oráculo está descansando. Verificá la clave de API e intentá de nuevo ✨';
+    chatResponse.textContent = `Error: ${err.message}`;
   } finally {
     chatSend.disabled = false;
     chatSend.textContent = 'Enviar';
