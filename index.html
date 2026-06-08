@@ -169,13 +169,6 @@
       background: rgba(255,255,255,.05);
       border-radius: 8px;
     }
-    .card-product-img {
-      width: 40px; height: 40px;
-      border-radius: 7px;
-      object-fit: cover;
-      flex-shrink: 0;
-      background: rgba(255,255,255,.07);
-    }
     .card-product-info { flex: 1; min-width: 0; }
     .card-product-name {
       font-size: .62rem;
@@ -408,7 +401,7 @@
   <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,216,155,.32),transparent);margin-bottom:18px;"></div>
   <p style="font-size:.82rem;line-height:1.78;color:rgba(255,255,255,.82);">
     Bienvenida a tu sistema solar de belleza.<br><br>
-    Cada michi en órbita es un paso de tu rutina de skincare. Pasá el cursor encima para descubrir productos de skincare top recomendados para vos.<br><br>
+    Cada michi en órbita es un paso de tu rutina de skincare. Pasá el cursor encima para descubrir productos de skincare top recomendados para ti.<br><br>
     ¿Dudas sobre tu rutina? Buscá al <span style="color:#C471F5;font-style:italic;">Oráculo</span> ✨
   </p>
 </div>
@@ -500,9 +493,9 @@ const PLANETS = [
     step:'Sérum',
     desc:'Activos concentrados que penetran profundo en la piel.',
     products:[
-      { name:'HA 2% + B5',            brand:'The Ordinary', img:'https://m.media-amazon.com/images/I/611Ixifm2EL._AC_SL300_.jpg' },
-      { name:'Advanced Snail 96 Mucin', brand:'COSRX',        img:'https://m.media-amazon.com/images/I/416kUGx2rQL._AC_SL300_.jpg' },
-      { name:'Niacinamide 10% + Zinc', brand:'The Ordinary', img:'https://logo.clearbit.com/theordinary.com' },
+      { name:'Niacinamide 10%',          brand:'The Ordinary' },
+      { name:'Effaclar Ultra Concentrado', brand:'La Roche-Posay' },
+      { name:'Sebo Control Sérum',       brand:'Eucerin' },
     ]
   },
   // ── Hidratante ────────────────────────────────────────
@@ -512,9 +505,9 @@ const PLANETS = [
     step:'Hidratante',
     desc:'Sella la hidratación y protege la barrera natural de tu piel.',
     products:[
-      { name:'Hydro Boost Water Gel', brand:'Neutrogena', img:'https://logo.clearbit.com/neutrogena.com' },
-      { name:'The Water Cream',       brand:'Tatcha',     img:'https://logo.clearbit.com/tatcha.com' },
-      { name:'Moisturizing Cream',    brand:'CeraVe',     img:'https://logo.clearbit.com/cerave.com' },
+      { name:'Moisturizing Cream',       brand:'CeraVe' },
+      { name:'Hydro Boost Water Gel',    brand:'Neutrogena' },
+      { name:'Hydrating Light Moisturizer', brand:'Cetaphil' },
     ]
   },
   // ── Oráculo (Chat IA — sage michi) ───────────────────
@@ -533,9 +526,9 @@ const PLANETS = [
     step:'Protector Solar',
     desc:'El paso que nunca podés saltarte. Protección UVA/UVB todos los días.',
     products:[
-      { name:'Unseen Sunscreen SPF 40',    brand:'Supergoop!',    img:'https://logo.clearbit.com/supergoop.com' },
-      { name:'UV Clear SPF 46',            brand:'EltaMD',        img:'https://logo.clearbit.com/eltamd.com' },
-      { name:'Anthelios Mineral SPF 50',   brand:'La Roche-Posay',img:'https://logo.clearbit.com/laroche-posay.com' },
+      { name:'Fotoprotector Fusion Water SPF 50', brand:'ISDIN' },
+      { name:'Anthelios UVMune 400 Fluido SPF 50+', brand:'La Roche-Posay' },
+      { name:'Oil Control Dry Touch SPF 50+', brand:'Eucerin' },
     ],
     ring:true
   },
@@ -546,9 +539,9 @@ const PLANETS = [
     step:'Contorno de Ojos',
     desc:'La zona más delicada del rostro merece atención especial.',
     products:[
-      { name:'Creamy Eye Treatment',    brand:"Kiehl's",       img:'https://logo.clearbit.com/kiehls.com' },
-      { name:'Banana Bright Eye Cream', brand:'Ole Henriksen', img:'https://logo.clearbit.com/olehenriksen.com' },
-      { name:'Caffeine Eye Serum 5%',   brand:'The Inkey List',img:'https://logo.clearbit.com/theinkeylist.com' },
+      { name:'Revitalift Ácido Hialurónico Ojos', brand:'L’Oréal Paris' },
+      { name:'Hydro Boost Eye Gel-Cream', brand:'Neutrogena' },
+      { name:'All About Eyes', brand:'Clinique' },
     ]
   },
   // ── Aceite Facial ─────────────────────────────────────
@@ -558,9 +551,9 @@ const PLANETS = [
     step:'Aceite Facial',
     desc:'El toque final que le da luminosidad y brillo a tu piel.',
     products:[
-      { name:'100% Plant Squalane',   brand:'The Ordinary', img:'https://logo.clearbit.com/theordinary.com' },
-      { name:'Squalane + Rose Vit C', brand:'Biossance',    img:'https://logo.clearbit.com/biossance.com' },
-      { name:'Dew Drops Serum',       brand:'Glow Recipe',  img:'https://logo.clearbit.com/glowrecipe.com' },
+      { name:'100% Plant-Derived Squalane', brand:'The Ordinary' },
+      { name:'Bio-Oil Skincare Oil', brand:'Bio-Oil' },
+      { name:'Aceite Extraordinario Facial', brand:'L’Oréal Paris' },
     ]
   },
   // ── NIEVE — Limpiador (outer orbit, grande) ───────────
@@ -571,9 +564,9 @@ const PLANETS = [
     step:'Limpiador Facial',
     desc:'El primer paso de tu rutina: piel limpia, mente fresca.',
     products:[
-      { name:'Foaming Facial Cleanser',      brand:'CeraVe',        img:'https://m.media-amazon.com/images/I/516r6ghtxaL._AC_SL300_.jpg' },
-      { name:'Sensibio H2O',                 brand:'Bioderma',      img:'https://logo.clearbit.com/bioderma.com' },
-      { name:'Toleriane Purifying Cleanser', brand:'La Roche-Posay',img:'https://logo.clearbit.com/laroche-posay.com' },
+      { name:'Foaming Facial Cleanser', brand:'CeraVe' },
+      { name:'Sensibio H2O', brand:'Bioderma' },
+      { name:'Agua Micelar Todo en 1', brand:'Garnier' },
     ]
   },
   // ── NEGRA — Tónico (outermost orbit, grande) ──────────
@@ -584,9 +577,9 @@ const PLANETS = [
     step:'Tónico',
     desc:'Equilibra el pH y prepara tu piel para absorber todo lo que sigue.',
     products:[
-      { name:'Hyaluronic Acid Toner',    brand:'COSRX',          img:'https://m.media-amazon.com/images/I/61bthY1PccL._AC_SL300_.jpg' },
-      { name:'BHA 2% Liquid Exfoliant',  brand:"Paula's Choice", img:'https://logo.clearbit.com/paulaschoice.com' },
-      { name:'AHA BHA PHA 30 Days Toner',brand:'Some By Mi',     img:'https://logo.clearbit.com/somebymi.com' },
+      { name:'Hydrating Toner', brand:'Simple' },
+      { name:'AHA BHA Clarifying Treatment Toner', brand:'COSRX' },
+      { name:'Tónico Astringente', brand:'Nivea' },
     ]
   },
 ];
@@ -679,7 +672,7 @@ function buildCatFace(color, size) {
 
 
 // ═══════════════════════════════════════════════════
-//  BUILD SUN (image)
+//  BUILD SUN
 // ═══════════════════════════════════════════════════
 const ss = document.getElementById('solar-system');
 
@@ -867,14 +860,6 @@ function showCard(p, el) {
   (p.products || []).forEach(prod => {
     const item = document.createElement('div');
     item.className = 'card-product-item';
-    if (prod.img) {
-      const img = document.createElement('img');
-      img.className = 'card-product-img';
-      img.src = prod.img;
-      img.alt = prod.brand;
-      img.onerror = function() { this.style.display = 'none'; };
-      item.appendChild(img);
-    }
     const info = document.createElement('div');
     info.className = 'card-product-info';
     info.innerHTML = `<div class="card-product-name">${prod.name}</div><div class="card-product-brand">${prod.brand}</div>`;
@@ -939,9 +924,24 @@ overlay.addEventListener('click', closeModal);
 // ═══════════════════════════════════════════════════
 //  CHAT (OpenAI)
 // ═══════════════════════════════════════════════════
-// La clave de OpenAI se lee desde config.js (que está en .gitignore).
-// Para usarla: abrí config.js y reemplazá 'YOUR_API_KEY_HERE' con tu clave real.
-const OPENAI_KEY = (window.MICHIVERSO_CONFIG && window.MICHIVERSO_CONFIG.openaiKey) || '';
+// La clave de OpenAI se lee preferentemente desde config.js (que está en .gitignore).
+// Si no existe config.js, también puede cargarse desde el entorno de despliegue.
+const OPENAI_KEY = (window.MICHIVERSO_CONFIG && window.MICHIVERSO_CONFIG.openaiKey) || window.__OPENAI_KEY__ || '';
+let resolvedOpenAIKey = OPENAI_KEY;
+
+async function getOpenAIKey() {
+  if (resolvedOpenAIKey) return resolvedOpenAIKey;
+
+  try {
+    const envRes = await fetch('/api/openai-key');
+    if (!envRes.ok) return '';
+    const envData = await envRes.json();
+    resolvedOpenAIKey = envData.key || '';
+    return resolvedOpenAIKey;
+  } catch {
+    return '';
+  }
+}
 
 const BEAUTY_PROMPT = `Eres una asistente de belleza experta llamada "Oráculo del Michiverso". Tu única temática es la belleza: skincare, maquillaje, fragancias, rituales de cuidado personal y bienestar estético. Si te preguntan algo fuera de estos temas, redirige amablemente la conversación hacia el mundo de la belleza.
 
@@ -958,6 +958,13 @@ async function sendChat() {
   const question = chatInput.value.trim();
   if (!question || chatSend.disabled) return;
 
+  const apiKey = await getOpenAIKey();
+  if (!apiKey) {
+    chatResponse.classList.add('has-text');
+    chatResponse.textContent = 'No encontré la API key. Cargá config.js o define OPENAI_API_KEY en Vercel.';
+    return;
+  }
+
   chatSend.disabled = true;
   chatSend.textContent = '...';
   chatResponse.classList.remove('has-text');
@@ -968,7 +975,7 @@ async function sendChat() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_KEY}`
+        'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
